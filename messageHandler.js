@@ -47,6 +47,9 @@ module.exports = async (connection, message) => {
                     typeof m.content === 'string' ? m.content : ""
     }
     console.log(m)
+
+    // Load the command handler
+    require('./commandHandler')(conn, m)
 }
 
 let file = require.resolve(__filename)
