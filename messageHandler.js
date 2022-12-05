@@ -42,10 +42,7 @@ module.exports = async (connection, message) => {
                 m.quoted.sender = m.content.contextInfo?.participant
             }
         }
-        m.text = m.quoted?.text ? m.quoted?.text : 
-            m.content?.caption ? m.content?.caption : 
-                m.content?.text ? m.content?.text : 
-                    typeof m.content === 'string' ? m.content : ""
+        m.text = m.content?.caption ? m.content?.caption : m.content?.text ? m.content?.text : typeof m.content === 'string' ? m.content : ""
     }
     console.log(m)
 
