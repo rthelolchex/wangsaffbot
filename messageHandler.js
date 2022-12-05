@@ -20,6 +20,7 @@ module.exports = async (connection, message) => {
         m.chat = m.key?.remoteJid
         m.chatType = isJidGroup(m.chat) ? "group" : isJidBroadcast(m.chat) ? "broadcast" : "private"
         m.fromMe = m.key?.fromMe || false
+        m.isBaileys = m.key.id.startsWith('3EB0') && m.key.id.length === 12 ? true : m.key.id.startsWith('BAE5') && m.key.id.length === 16 ? true : false
     }
     if (m.message) {
         m.type = getContentType(m.message)

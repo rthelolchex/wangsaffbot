@@ -10,6 +10,9 @@ module.exports = async (connection, message) => {
         var prefix = /^[°•π÷×¶∆£¢€¥®™✓_=|~!?#$%^&.+-,\/\\©^]/.test(command) ? command.match(/^[°•π÷×¶∆£¢€¥®™✓_=|~!?#$%^&.+-,\/\\©^]/gi) : defaultPrefix
     } else prefix = defaultPrefix
 
+    // Handle the command
+    if (m.isBaileys) return
+
     var args = m.text.trim().split(/ +/).slice(1)
     var isCmd = m.text.startsWith(prefix)
 
